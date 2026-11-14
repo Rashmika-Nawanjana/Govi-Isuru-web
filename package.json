@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "bunx --bun vite --config web/vite.config.ts",
-    "build": "bunx --bun vite build --config web/vite.config.ts",
+    "dev": "bunx --bun vite --config web/vite.config.mjs",
+    "build": "bunx --bun vite build --config web/vite.config.mjs",
     "start": "NODE_ENV=production bun run server/src/index.ts",
     "typecheck": "tsc -p server/tsconfig.json --noEmit && tsc -p web/tsconfig.json --noEmit"
   },

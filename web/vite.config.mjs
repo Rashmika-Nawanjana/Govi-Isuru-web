@@ -16,16 +16,7 @@ async function createApiMiddleware() {
   // Imported once at server start — restart `bun run dev` after server route changes
   const { app } = await import("../server/src/app.ts");
 
-  return async (
-    req: { method?: string; url?: string; headers: Record<string, string | string[] | undefined> },
-    res: {
-      statusCode: number;
-      setHeader: (k: string, v: string) => void;
-      appendHeader?: (k: string, v: string) => void;
-      end: (b?: Buffer | string) => void;
-    },
-    next: (err?: unknown) => void
-  ) => {
+  return async (req, res, next) => {
     try {
       const host =
         (typeof req.headers.host === "string" && req.headers.host) ||
@@ -43,10 +34,9 @@ async function createApiMiddleware() {
       }
 
       const method = req.method || "GET";
-      let body: Buffer | undefined;
+      let body;
       if (method !== "GET" && method !== "HEAD") {
-        const chunks: Buffer[] = [];
-        // @ts-expect-error Node IncomingMessage is async-iterable
+        const chunks = [];
         for await (const chunk of req) {
           chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
         }
@@ -107,6 +97,7 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: path.resolve(rootDir, "dist"),
       emptyOutDir: true,
+      chunkSizeWarningLimit: 3000,
     },
     plugins: [
       react({

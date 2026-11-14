@@ -1,11 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "bunVersion": "1.x",
-  "buildCommand": "bun run build",
+  "buildCommand": "bunx --bun vite build --config web/vite.config.mjs",
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/server/src/index.ts" },
-    { "source": "/health", "destination": "/server/src/index.ts" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/api/(.*)", "destination": "/api" },
+    { "source": "/health", "destination": "/api" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }
