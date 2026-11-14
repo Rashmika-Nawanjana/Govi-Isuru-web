@@ -1,5 +1,7 @@
 node_modules/
 dist/
+.next/
+out/
 .env
 .env.local
 *.log
@@ -9,6 +11,6 @@ server/uploads/
 *.pem
 coverage/
 *.tsbuildinfo
+web/
 apps/
-app/
 packages/

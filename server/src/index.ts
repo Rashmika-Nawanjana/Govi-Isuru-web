@@ -22,9 +22,13 @@ const server = app
   )
   .get("/*", async ({ path: reqPath }) => {
     if (reqPath.startsWith("/api") || reqPath === "/health") return;
-    const file = Bun.file(path.join(distDir, "index.html"));
-    if (await file.exists()) return file;
-    return new Response("Build missing. Run: bun run build", { status: 404 });
+    // Standalone Bun server only (not used under Next.js)
+    const indexPath = path.join(distDir, "index.html");
+    const file = (globalThis as { Bun?: { file: (p: string) => { exists: () => Promise<boolean> } } }).Bun?.file(indexPath);
+    if (file && (await file.exists())) return file as unknown as Response;
+    return new Response("Use Next.js (`bun run start`) or build the SPA into dist/", {
+      status: 404,
+    });
   })
   .listen(env.port);
 

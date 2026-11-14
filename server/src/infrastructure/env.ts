@@ -22,11 +22,13 @@ export const env = {
   ),
   corsOrigin: required("CORS_ORIGIN", appUrl),
   frontendUrl: required("FRONTEND_URL", appUrl),
-  // Prefer ML_SERVICE_URL; fall back to legacy AI_SERVICE_URL from monolith
+  // Prefer ML_SERVICE_URL; fall back to legacy AI_SERVICE_URL from monolith.
+  // Swap this URL to point at a new AI service — Govi /api/* routes stay stable.
   mlServiceUrl: required(
     "ML_SERVICE_URL",
     process.env.AI_SERVICE_URL || "http://localhost:8000"
   ),
+  mlApiKey: process.env.ML_API_KEY || process.env.AI_API_KEY || "",
   googleClientId: process.env.GOOGLE_CLIENT_ID || "",
   googleClientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
   googleRedirectUri:
