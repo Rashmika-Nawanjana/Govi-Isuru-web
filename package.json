@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "bunx --bun vite --config web/vite.config.mjs",
-    "build": "bunx --bun vite build --config web/vite.config.mjs",
+    "build": "node ./node_modules/vite/bin/vite.js build --config web/vite.config.mjs",
     "start": "NODE_ENV=production bun run server/src/index.ts",
     "typecheck": "tsc -p server/tsconfig.json --noEmit && tsc -p web/tsconfig.json --noEmit"
   },
   "dependencies": {
+    "@govi/shared": "file:./shared",
     "@ai-sdk/google": "^1.2.0",
     "@daily-co/daily-js": "^0.95.0",
     "@elysiajs/cors": "^1.2.0",
