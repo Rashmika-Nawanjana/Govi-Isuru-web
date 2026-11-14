@@ -1,0 +1,259 @@
+{
+  "rice": {
+    "yala": {
+      "fertilizer": {
+        "recommendation": "Use Urea in split doses (3 applications). Apply TSP (Triple Super Phosphate) and MOP (Muriate of Potash) during land preparation. Recommended: 225kg Urea, 55kg TSP, 60kg MOP per hectare.",
+        "si": "යාල කාලය සඳහා යුරියා කොටස් 3කින් භාවිතා කරන්න. TSP (ත්‍රිත්ව සුපර් පොස්පේට්) සහ MOP (මියුරේට් ඔෆ් පොටෑෂ්) බිම සකස් කිරීමේදී යොදන්න. නිර්දේශිත: හෙක්ටයාරයකට යුරියා 225kg, TSP 55kg, MOP 60kg."
+      },
+      "planting": {
+        "recommendation": "Best planting time: April to May. Use certified seeds. Maintain 2-3cm water level during early growth stage.",
+        "si": "වඩාත්ම සුදුසු වගා කාලය: අප්‍රේල් - මැයි. සහතික කළ බීජ භාවිතා කරන්න. මුල් වර්ධන අවධියේ ජල මට්ටම 2-3cm පවත්වන්න."
+      },
+      "harvest": {
+        "recommendation": "Harvest when 80-85% of grains turn golden yellow. Moisture content should be 20-24% at harvest.",
+        "si": "ධාන්‍ය 80-85% රන් කහ පැහැයට හැරෙන විට අස්වනු නෙළන්න. අස්වනු නෙළීමේදී තෙතමන ප්‍රමාණය 20-24% විය යුතුය."
+      }
+    },
+    "maha": {
+      "fertilizer": {
+        "recommendation": "Apply organic fertilizer (compost/cow dung) before planting. Reduce nitrogen during heavy rains to prevent lodging. Split Urea application into 4 doses during Maha season.",
+        "si": "මහ කාලයේ වගා කිරීමට පෙර ජෛව පොහොර (කොම්පෝස්ට්/ගොම) යොදන්න. වැඩි වර්ෂාවේදී නයිට්‍රජන් අඩු කරන්න. මහ කන්නයේදී යුරියා කොටස් 4කින් යොදන්න."
+      },
+      "planting": {
+        "recommendation": "Best planting time: October to November. Use short-duration varieties (3-3.5 months) to avoid flood damage.",
+        "si": "වඩාත්ම සුදුසු වගා කාලය: ඔක්තෝබර් - නොවැම්බර්. ගංවතුර හානි වැලැක්වීමට කෙටි කාලීන ප්‍රභේද (මාස 3-3.5) භාවිතා කරන්න."
+      },
+      "harvest": {
+        "recommendation": "Monitor weather forecasts closely. Harvest before heavy December rains if possible.",
+        "si": "කාලගුණ අනාවැකි හොඳින් නිරීක්ෂණය කරන්න. හැකි නම් දෙසැම්බර් වැඩි වර්ෂාවට පෙර අස්වනු නෙළන්න."
+      }
+    },
+    "diseases": {
+      "blast": {
+        "symptoms": "Diamond-shaped lesions on leaves with gray centers. Severe cases show neck rot.",
+        "treatment": "Avoid excess nitrogen fertilizer. Apply Tricyclazole or Isoprothiolane fungicide if severe. Use resistant varieties like BG 300.",
+        "si": "කොළ මත දියමන්ති හැඩැති තුවාල අළු මධ්‍යයන් සහිතව පෙනේ. දරුණු අවස්ථාවල බෙල්ල කුණුවීම දක්නට ලැබේ. අධික නයිට්‍රජන් පොහොර වලින් වළකින්න. දරුණු නම් ට්‍රයිසයික්ලසෝල් හෝ අයිසොප්‍රොතයොලේන් දිලීර නාශක යොදන්න. BG 300 වැනි ප්‍රතිරෝධී ප්‍රභේද භාවිතා කරන්න."
+      },
+      "bacterial_leaf_blight": {
+        "symptoms": "Water-soaked lesions that turn yellow to white, starting from leaf tips. Leaves dry from tip downward.",
+        "treatment": "Reduce nitrogen fertilizer application. Drain excess water from fields. Apply copper-based bactericides. Use resistant varieties.",
+        "si": "ජලයෙන් පොඟවන ලද තුවාල කහ සිට සුදු දක්වා වෙනස් වේ, කොළ අග සිට ආරම්භ වේ. කොළ අග සිට පහළට වියළේ. නයිට්‍රජන් පොහොර යෙදීම අඩු කරන්න. කෙත්වල අතිරික්ත ජලය බැස යන්න දෙන්න. තඹ පාදක බැක්ටීරියා නාශක යොදන්න."
+      },
+      "brown_spot": {
+        "symptoms": "Circular to oval brown spots with gray centers on leaves. Dark brown spots on grains.",
+        "treatment": "Apply potassium fertilizer. Use Mancozeb or Carbendazim fungicide. Improve soil fertility with organic matter.",
+        "si": "කොළ මත අළු මධ්‍යයන් සහිත රවුම් සිට ඕවලාකාර දුඹුරු ලප. ධාන්‍ය මත තද දුඹුරු ලප. පොටෑසියම් පොහොර යොදන්න. මැන්කොසෙබ් හෝ කාබෙන්ඩසිම් දිලීර නාශක භාවිතා කරන්න."
+      },
+      "leaf_smut": {
+        "symptoms": "Black powdery spores on leaf surface. Leaves appear dirty with sooty appearance.",
+        "treatment": "Remove and destroy infected leaves. Spray Copper oxychloride. Maintain proper plant spacing for air circulation.",
+        "si": "කොළ මතුපිට කළු කුඩු බීජාණු. කොළ කාබන් වැනි පෙනුමක් ඇති අපිරිසිදු බවක් පෙනේ. ආසාදිත කොළ ඉවත් කර විනාශ කරන්න. කොපර් ඔක්සික්ලෝරයිඩ් ඉසින්න."
+      }
+    },
+    "pests": {
+      "stem_borer": {
+        "symptoms": "Dead hearts in vegetative stage. White heads during flowering.",
+        "treatment": "Apply Carbofuran granules at base. Use pheromone traps. Release Trichogramma parasitoids.",
+        "si": "ශාකමය අවධියේදී මළ හදවත්. මල් පිපෙන කාලයේ සුදු හිස්. කාබෝෆියුරන් කැට පාමුල යොදන්න. ෆෙරමෝන උගුල් භාවිතා කරන්න."
+      },
+      "brown_planthopper": {
+        "symptoms": "Hopper burn - circular patches of dried plants. Honeydew secretion on plants.",
+        "treatment": "Avoid excess nitrogen. Alternate wet and dry irrigation. Apply Imidacloprid or Buprofezin if severe.",
+        "si": "හොපර් පිළිස්සුම් - වියළුණු ශාකවල රවුම් පැල්ලම්. ශාක මත මී දිය ශ්‍රාවය. අධික නයිට්‍රජන් වළකින්න. තෙත් හා වියළි වාරිමාර්ග ක්‍රමය මාරු කරන්න."
+      }
+    },
+    "water_management": {
+      "recommendation": "Maintain 2-5cm water during tillering. Drain for 7-10 days before harvest. Alternate Wetting and Drying (AWD) saves 20-30% water.",
+      "si": "පැල පෙරීමේදී 2-5cm ජලය පවත්වන්න. අස්වනු නෙළීමට දින 7-10කට පෙර ජලය බැස යන්න දෙන්න. AWD ක්‍රමයෙන් ජලය 20-30% ඉතිරි කරයි."
+    }
+  },
+  "vegetables": {
+    "general": {
+      "fertilizer": {
+        "recommendation": "Apply well-decomposed compost 2 weeks before planting. Use NPK 10:10:10 as basal application. Top dress with Urea every 2-3 weeks.",
+        "si": "වගා කිරීමට සති 2කට පෙර හොඳින් දිරාපත් වූ කොම්පෝස්ට් යොදන්න. NPK 10:10:10 පාදක යෙදුමක් ලෙස භාවිතා කරන්න. සෑම සති 2-3කට වරක් යුරියා ඉහළ ඇඳුමක් ලෙස යොදන්න."
+      }
+    },
+    "diseases": {
+      "fungal": {
+        "treatment": "Improve drainage. Apply Mancozeb or Copper hydroxide. Avoid overhead irrigation.",
+        "si": "ජලාපවහනය වැඩි දියුණු කරන්න. මැන්කොසෙබ් හෝ කොපර් හයිඩ්‍රොක්සයිඩ් යොදන්න. ඉහළ සිට වාරි ජලය දැමීමෙන් වළකින්න."
+      }
+    }
+  },
+  "weather_advice": {
+    "heavy_rain": {
+      "recommendation": "Ensure proper drainage in fields. Delay fertilizer application. Watch for fungal disease outbreaks.",
+      "si": "කෙත්වල නිසි ජලාපවහනය සහතික කරන්න. පොහොර යෙදීම ප්‍රමාද කරන්න. දිලීර රෝග පැතිරීම නිරීක්ෂණය කරන්න."
+    },
+    "drought": {
+      "recommendation": "Mulch around plants to conserve moisture. Irrigate early morning or late evening. Consider drought-resistant varieties.",
+      "si": "තෙතමනය සංරක්ෂණය කිරීමට ශාක වටා වැසුම් දමන්න. උදේ පාන්දර හෝ සවස් වරුවේ වාරිමාර්ග යොදන්න. නියං ප්‍රතිරෝධී ප්‍රභේද සලකා බලන්න."
+    },
+    "high_humidity": {
+      "recommendation": "Monitor for fungal diseases. Ensure good air circulation. Avoid dense planting.",
+      "si": "දිලීර රෝග නිරීක්ෂණය කරන්න. හොඳ වාතාශ්‍රය සහතික කරන්න. ඝන වගාවෙන් වළකින්න."
+    }
+  },
+  "organic_farming": {
+    "compost": {
+      "recommendation": "Prepare compost using crop residues, cow dung, and green manure. Apply 10-15 tons per hectare. Ready in 2-3 months.",
+      "si": "බෝග අවශේෂ, ගොම සහ කොළ පොහොර භාවිතයෙන් කොම්පෝස්ට් සකස් කරන්න. හෙක්ටයාරයකට ටොන් 10-15 යොදන්න. මාස 2-3කින් සූදානම්."
+    },
+    "pest_control": {
+      "recommendation": "Use neem-based pesticides. Introduce beneficial insects. Practice crop rotation.",
+      "si": "කොහොඹ පාදක පළිබෝධනාශක භාවිතා කරන්න. ප්‍රයෝජනවත් කෘමීන් හඳුන්වා දෙන්න. බෝග මාරුව පුහුණු කරන්න."
+    }
+  },
+  "government_schemes": {
+    "fertilizer_subsidy": {
+      "info": "Government provides subsidized fertilizer through agrarian service centers. Bring your farmer ID card to collect.",
+      "si": "රජය කෘෂිකාර්මික සේවා මධ්‍යස්ථාන හරහා සහනාධාර පොහොර සපයයි. එකතු කිරීමට ඔබේ ගොවි හැඳුනුම්පත ගෙන එන්න."
+    },
+    "crop_insurance": {
+      "info": "Agricultural Insurance Board provides coverage for crop damage. Register at your local Agrarian Service Center.",
+      "si": "කෘෂිකාර්මික රක්ෂණ මණ්ඩලය බෝග හානි සඳහා ආවරණය සපයයි. ඔබේ ප්‍රදේශයේ කෘෂිකාර්මික සේවා මධ්‍යස්ථානයේ ලියාපදිංචි වන්න."
+    }
+  },
+  "tea": {
+    "general": {
+      "fertilizer": {
+        "recommendation": "Apply T 750 mixture (NPK 10:5:10) at 160-200 kg/ha every 2 months. For young tea, use T 200 mixture. Apply urea during wet months. Add dolomite for soil pH correction if needed.",
+        "si": "T 750 මිශ්‍රණය (NPK 10:5:10) මාස 2කට වරක් හෙක්ටයාරයකට 160-200 kg යොදන්න. තරුණ තේ සඳහා T 200 මිශ්‍රණය භාවිතා කරන්න. තෙත් මාසවල යුරියා යොදන්න. අවශ්‍ය නම් පස් pH නිවැරදි කිරීමට ඩොලමයිට් එක් කරන්න."
+      },
+      "planting": {
+        "recommendation": "Plant tea during May-June or October-November. Use VP (Vegetatively Propagated) plants. Spacing: 1.2m x 0.6m for high density. Prepare planting holes 45cm x 45cm x 45cm.",
+        "si": "මැයි-ජූනි හෝ ඔක්තෝබර්-නොවැම්බර් මාසවල තේ වගා කරන්න. VP (ශාකමය ප්‍රචාරණය කළ) පැල භාවිතා කරන්න. පරතරය: ඉහළ ඝනත්වය සඳහා 1.2m x 0.6m. 45cm x 45cm x 45cm වගා කුහර සකස් කරන්න."
+      },
+      "harvest": {
+        "recommendation": "Pluck every 7-10 days during wet season, 10-14 days in dry season. Use 'two leaves and a bud' plucking standard. Avoid over-plucking. Best plucking time is early morning.",
+        "si": "තෙත් සමයේ දින 7-10කට වරක්, වියළි සමයේ දින 10-14කට වරක් කොළ නෙලන්න. 'කොළ දෙකක් හා මුකුළක්' නෙලීම් ප්‍රමිතිය භාවිතා කරන්න. අධික නෙලීමෙන් වළකින්න. හොඳම නෙලීම් වේලාව උදේ පාන්දරය."
+      }
+    },
+    "diseases": {
+      "blister_blight": {
+        "symptoms": "Light colored blister-like spots on young leaves. Blisters turn white and velvety underneath. Severely affected leaves curl and die.",
+        "treatment": "Apply copper-based fungicides. Maintain proper shade. Improve drainage. Spray Hexaconazole or Propiconazole. Remove infected shoots during plucking.",
+        "si": "තරුණ කොළ මත සැහැල්ලු පැහැති බිබිලි වැනි ලප. බිබිලි පහළින් සුදු හා මැහැලි වේ. දරුණු ලෙස පීඩිත කොළ කරකැවී මිය යයි. තඹ පාදක දිලීර නාශක යොදන්න. නිසි සෙවන පවත්වන්න. ජලාපවහනය වැඩි දියුණු කරන්න. හෙක්සාකොනසෝල් හෝ ප්‍රොපිකොනසෝල් ඉසින්න."
+      },
+      "brown_blight": {
+        "symptoms": "Brown lesions on mature leaves starting from tips and margins. Lesions spread causing leaf death. Common during monsoon.",
+        "treatment": "Prune affected branches. Apply copper hydroxide. Avoid excess nitrogen. Improve air circulation through proper pruning.",
+        "si": "අග සහ දාරවලින් ආරම්භ වන පරිණත කොළ මත දුඹුරු තුවාල. තුවාල පැතිර කොළ මිය යයි. මෝසම් කාලයේ බහුල වේ. පීඩිත අතු කප්පාදු කරන්න. කොපර් හයිඩ්‍රොක්සයිඩ් යොදන්න. අධික නයිට්‍රජන් වළකින්න."
+      },
+      "gray_blight": {
+        "symptoms": "Grayish-brown spots with dark margins on leaves. Often appears after drought stress or nutrient deficiency.",
+        "treatment": "Apply Mancozeb fungicide. Correct nutrient deficiencies. Remove infected leaves. Maintain proper soil moisture.",
+        "si": "කොළ මත තද දාර සහිත අළු-දුඹුරු ලප. බොහෝ විට නියඟ ආතතිය හෝ පෝෂක ඌනතාවයෙන් පසු පෙනේ. මැන්කොසෙබ් දිලීර නාශක යොදන්න. පෝෂක ඌනතා නිවැරදි කරන්න. ආසාදිත කොළ ඉවත් කරන්න."
+      },
+      "red_rust": {
+        "symptoms": "Orange-red rusty patches on upper leaf surface. Raised pustules containing spores. Mainly affects shaded areas.",
+        "treatment": "Improve light penetration through shade management. Apply copper fungicides. Remove heavily infected branches. Reduce shade tree density.",
+        "si": "කොළ මතුපිට ඉහළ පැත්තේ තැඹිලි-රතු මලකඩ ලප. බීජාණු අඩංගු ඉහළට නැඟුණු පැස්ටියුල. ප්‍රධාන වශයෙන් සෙවන ප්‍රදේශවලට බලපායි. සෙවන කළමනාකරණය හරහා ආලෝකය වැඩි කරන්න. තඹ දිලීර නාශක යොදන්න."
+      },
+      "healthy": {
+        "symptoms": "No disease symptoms. Leaves are green, shiny, and healthy.",
+        "treatment": "Continue good agricultural practices. Monitor regularly for pest and disease symptoms.",
+        "si": "රෝග ලක්ෂණ නැත. කොළ කොළ පැහැති, බබළන සහ සෞඛ්‍ය සම්පන්න වේ. හොඳ කෘෂිකාර්මික පිළිවෙත් දිගටම කරගෙන යන්න. පළිබෝධ සහ රෝග ලක්ෂණ සඳහා නිතරම නිරීක්ෂණය කරන්න."
+      }
+    },
+    "pests": {
+      "tea_mosquito_bug": {
+        "symptoms": "Brown lesions on young shoots. Dry brown patches on leaves. Severe damage to tender stems.",
+        "treatment": "Spray neem-based insecticides. Use pheromone traps. Apply Thiamethoxam or Imidacloprid during peak infestation.",
+        "si": "තරුණ අංකුර මත දුඹුරු තුවාල. කොළ මත වියළි දුඹුරු පැල්ලම්. මෘදු කඳන්වලට දරුණු හානි. කොහොඹ පාදක කෘමිනාශක ඉසින්න. ෆෙරමෝන උගුල් භාවිතා කරන්න."
+      },
+      "red_spider_mite": {
+        "symptoms": "Bronzing of upper leaf surface. Fine webbing on leaves. Yellow speckling becoming brown.",
+        "treatment": "Apply miticides like Dicofol or Propargite. Increase humidity. Introduce predatory mites. Remove heavily infested shoots.",
+        "si": "කොළ මතුපිට ඉහළ පැත්තේ ලෝකඩ පාට ගැන්වීම. කොළ මත සියුම් දැල්. කහ ලප දුඹුරු පාට වීම. ඩයිකොෆෝල් හෝ ප්‍රොපාගයිට් වැනි මයිටිසයිඩ යොදන්න."
+      },
+      "tea_tortrix": {
+        "symptoms": "Rolled leaves tied with silk. Caterpillars inside rolled leaves. Holes in mature leaves.",
+        "treatment": "Hand-pick rolled leaves. Apply Bacillus thuringiensis (Bt). Use light traps for adult moths.",
+        "si": "සේද සමඟ බැඳුණු රෝල් කළ කොළ. රෝල් කළ කොළ තුළ කැට්පිලර්. පරිණත කොළ වල සිදුරු. රෝල් කළ කොළ අතින් ඉවත් කරන්න. Bacillus thuringiensis (Bt) යොදන්න."
+      },
+      "shot_hole_borer": {
+        "symptoms": "Tiny circular holes in stems and branches. Sawdust-like frass at entry holes. Branch dieback.",
+        "treatment": "Prune and burn affected branches. Apply carbofuran granules at base. Maintain bush vigor through proper fertilization.",
+        "si": "කඳන් සහ අතුවල කුඩා රවුම් සිදුරු. ඇතුල්වන සිදුරුවල දැව කුඩු වැනි අපද්‍රව්‍ය. අතු මිය යාම. පීඩිත අතු කප්පාදු කර පුළුස්සන්න. පාමුල කාබෝෆියුරන් කැට යොදන්න."
+      }
+    },
+    "water_management": {
+      "recommendation": "Tea requires 1200-1400mm annual rainfall. Maintain soil moisture through mulching. Install drip irrigation in dry areas. Good drainage is essential - waterlogging causes root rot.",
+      "si": "තේ සඳහා වාර්ෂික වර්ෂාපතනය 1200-1400mm අවශ්‍යයි. වැසුම් හරහා පස් තෙතමනය පවත්වන්න. වියළි ප්‍රදේශවල බින්දු වාරිමාර්ග ස්ථාපනය කරන්න. හොඳ ජලාපවහනය අත්‍යවශ්‍යයි - ජල රැඳීම මූල කුණුවීමට හේතු වේ."
+    },
+    "shade_management": {
+      "recommendation": "Maintain 30-40% shade using shade trees like Gliricidia or Grevillea. Reduce shade during monsoon. Regulate shade to control blister blight.",
+      "si": "ග්ලිරිසිඩියා හෝ ග්‍රෙවිලියා වැනි සෙවන ගස් භාවිතයෙන් 30-40% සෙවන පවත්වන්න. මෝසම් කාලයේ සෙවන අඩු කරන්න. බිබිලි රෝගය පාලනය කිරීමට සෙවන නියාමනය කරන්න."
+    },
+    "pruning": {
+      "recommendation": "Prune tea bushes every 3-5 years. Best time for pruning: December-January. Leave 45-55cm from ground. Allow 8-10 weeks recovery before first plucking.",
+      "si": "සෑම වසර 3-5කට වරක් තේ පඳුරු කප්පාදු කරන්න. කප්පාදු කිරීමට හොඳම කාලය: දෙසැම්බර්-ජනවාරි. බිමේ සිට 45-55cm තබන්න. පළමු නෙලීමට පෙර සති 8-10ක් යථා තත්ත්වයට පත්වීමට ඉඩ දෙන්න."
+    }
+  },
+  "chili": {
+    "general": {
+      "fertilizer": {
+        "recommendation": "Apply well-decomposed organic matter before planting. Use NPK 10:10:10 as basal dressing (150-200 kg/ha). Apply Urea (100 kg/ha) in split doses at 2, 4, and 6 weeks after transplanting. Add MOP (75 kg/ha) during flowering.",
+        "si": "වගා කිරීමට පෙර හොඳින් දිරාපත් වූ කාබනික ද්‍රව්‍ය යොදන්න. NPK 10:10:10 පාදක ඇඳුමක් ලෙස භාවිතා කරන්න (හෙක්ටයාරයකට 150-200 kg). පැල සිටුවීමෙන් සති 2, 4, 6 කදී යුරියා කොටස් වශයෙන් යොදන්න. මල් පිපෙන කාලයේ MOP එක් කරන්න."
+      },
+      "planting": {
+        "recommendation": "Best planting time: Yala season (March-April) or Maha season (September-October). Spacing: 60cm x 45cm. Transplant 30-35 day old seedlings. Prepare raised beds for good drainage.",
+        "si": "වඩාත්ම සුදුසු වගා කාලය: යාල කන්නය (මාර්තු-අප්‍රේල්) හෝ මහ කන්නය (සැප්තැම්බර්-ඔක්තෝබර්). පරතරය: 60cm x 45cm. දින 30-35 පැළ පැළ කරන්න. හොඳ ජලාපවහනය සඳහා ඉහළ නැඟුණු ඇඳන් සකස් කරන්න."
+      },
+      "harvest": {
+        "recommendation": "First harvest 60-75 days after transplanting. Harvest green chili when fully grown but before color change. For dry chili, harvest when fruits turn red. Regular picking encourages more fruiting.",
+        "si": "පැල සිටුවීමෙන් දින 60-75 කින් පළමු අස්වැන්න. පැහැය වෙනස් වීමට පෙර සම්පූර්ණයෙන් වැඩුණු පසු කොළ මිරිස් නෙලන්න. වියළි මිරිස් සඳහා ගෙඩි රතු පාට වූ විට නෙලන්න. නිතිපතා නෙලීම වැඩි ඵල දැරීමට උදව් වේ."
+      }
+    },
+    "diseases": {
+      "leaf_spot": {
+        "symptoms": "Circular to irregular brown spots with dark margins on leaves. Spots may have concentric rings. Severe infection causes defoliation.",
+        "treatment": "Apply copper-based fungicides (Copper Oxychloride). Remove infected leaves. Use Mancozeb or Chlorothalonil. Avoid overhead irrigation. Maintain plant spacing for air circulation.",
+        "si": "කොළ මත තද දාර සහිත රවුම් හෝ අක්‍රමවත් දුඹුරු ලප. ලප වල සංකේන්ද්‍රික වළලු තිබිය හැක. දරුණු ආසාදනය පත්‍ර හැලීමට හේතු වේ. තඹ පාදක දිලීර නාශක (කොපර් ඔක්සික්ලෝරයිඩ්) යොදන්න. ආසාදිත කොළ ඉවත් කරන්න. මැන්කොසෙබ් හෝ ක්ලෝරොතලෝනිල් භාවිතා කරන්න."
+      },
+      "thrips_damage": {
+        "symptoms": "Silvery streaks on leaves. Leaf curling and distortion. Stunted plant growth. Flowers may drop prematurely.",
+        "treatment": "Apply Imidacloprid or Spinosad insecticides. Use blue sticky traps. Spray neem oil for organic control. Remove heavily infested parts. Introduce predatory mites.",
+        "si": "කොළ මත රිදී පාට ඉරි. කොළ කරකැවීම හා විකෘති වීම. ශාක වර්ධනය අඩාල වීම. මල් නොමේරූ ලෙස වැටිය හැක. ඉමිඩැක්ලෝප්‍රිඩ් හෝ ස්පයිනොසැඩ් කෘමිනාශක යොදන්න. නිල් ඇලෙන උගුල් භාවිතා කරන්න. ජෛව පාලනය සඳහා කොහොඹ තෙල් ඉසින්න."
+      },
+      "yellow_virus": {
+        "symptoms": "Yellowing of leaves especially young ones. Leaf curling upward. Stunted growth. Reduced fruit size and yield. Transmitted by whiteflies.",
+        "treatment": "Remove and destroy infected plants immediately. Control whitefly vectors with Imidacloprid or Thiamethoxam. Use reflective mulches. Plant resistant varieties. Avoid planting near infected fields.",
+        "si": "කොළ කහ වීම විශේෂයෙන් තරුණ කොළ. කොළ ඉහළට කරකැවීම. වර්ධනය අඩාල වීම. ඵල ප්‍රමාණය හා අස්වැන්න අඩු වීම. සුදු මැස්සන් මගින් පැතිරේ. ආසාදිත ශාක වහාම ඉවත් කර විනාශ කරන්න. ඉමිඩැක්ලෝප්‍රිඩ් හෝ තයමෙතොක්සැම් සමඟ සුදු මැස්සන් පාලනය කරන්න."
+      },
+      "healthy": {
+        "symptoms": "No disease symptoms. Leaves are green, healthy with no spots or discoloration. Plant shows vigorous growth.",
+        "treatment": "Continue good agricultural practices. Monitor regularly for pest and disease symptoms. Maintain balanced fertilization.",
+        "si": "රෝග ලක්ෂණ නැත. කොළ කොළ පැහැති, ලප හෝ පාට වෙනස් වීමක් නොමැතිව සෞඛ්‍ය සම්පන්නයි. ශාකය ශක්තිමත් වර්ධනයක් පෙන්වයි. හොඳ කෘෂිකාර්මික පිළිවෙත් දිගටම කරගෙන යන්න. පළිබෝධ හා රෝග ලක්ෂණ නිතර නිරීක්ෂණය කරන්න."
+      }
+    },
+    "pests": {
+      "aphids": {
+        "symptoms": "Clusters of small soft-bodied insects on young shoots. Honeydew secretion causing sooty mold. Curled and distorted leaves.",
+        "treatment": "Spray neem oil or insecticidal soap. Apply Imidacloprid for severe infestations. Introduce ladybird beetles as biological control. Remove heavily infested shoots.",
+        "si": "තරුණ අංකුර මත කුඩා මෘදු සිරුරු සහිත කෘමීන් පොකුරු. සූටි පුස් ඇති කරන මී දිය ශ්‍රාවය. කරකැවුණු හා විකෘති කොළ. කොහොඹ තෙල් හෝ කෘමිනාශක සබන් ඉසින්න. දරුණු ආසාදන සඳහා ඉමිඩැක්ලෝප්‍රිඩ් යොදන්න."
+      },
+      "fruit_borer": {
+        "symptoms": "Holes in fruits with caterpillar inside. Premature fruit drop. Rotting of damaged fruits.",
+        "treatment": "Apply Bacillus thuringiensis (Bt) sprays. Use pheromone traps for monitoring. Remove and destroy infested fruits. Apply Chlorantraniliprole for severe cases.",
+        "si": "ඇතුළත කැට්පිලර් සමඟ ගෙඩිවල සිදුරු. නොමේරූ ගෙඩි වැටීම. හානි වූ ගෙඩි කුණු වීම. Bacillus thuringiensis (Bt) ඉසින්න. නිරීක්ෂණය සඳහා ෆෙරමෝන උගුල් භාවිතා කරන්න."
+      },
+      "mites": {
+        "symptoms": "Bronzing or russeting of leaves. Fine webbing on leaf undersides. Leaf curling and drying.",
+        "treatment": "Apply sulfur-based miticides. Spray water to increase humidity. Use Abamectin or Propargite. Avoid water stress in plants.",
+        "si": "කොළ ලෝකඩ පාට හෝ රස්ට් පාට ගැන්වීම. කොළ යටි පැත්තේ සියුම් දැල්. කොළ කරකැවීම හා වියළීම. සල්ෆර් පාදක මයිටිසයිඩ් යොදන්න. තෙතමනය වැඩි කිරීමට ජලය ඉසින්න."
+      }
+    },
+    "water_management": {
+      "recommendation": "Water chili plants regularly but avoid waterlogging. Critical watering periods: flowering and fruit development. Drip irrigation recommended. Water early morning to prevent fungal diseases.",
+      "si": "මිරිස් පැල නිතිපතා ජලය දෙන්න නමුත් ජල රැඳීමෙන් වළකින්න. තීරණාත්මක ජලය දීමේ කාල: මල් පිපීම සහ ඵල වර්ධනය. බින්දු වාරිමාර්ග නිර්දේශ කෙරේ. දිලීර රෝග වැළැක්වීමට උදේ පාන්දර ජලය දෙන්න."
+    },
+    "varieties": {
+      "recommendation": "Popular Sri Lankan varieties: MI-1 (green chili), MI-2 (Kochchi), KA-2 (bird's eye chili). Hybrid varieties give higher yield but need more care.",
+      "si": "ජනප්‍රිය ශ්‍රී ලංකා ප්‍රභේද: MI-1 (කොළ මිරිස්), MI-2 (කොච්චි), KA-2 (කුකුල් මිරිස්). දෙමුහුන් ප්‍රභේද වැඩි අස්වැන්නක් ලබා දෙන නමුත් වැඩි රැකවරණයක් අවශ්‍ය වේ."
+    }
+  }
+}
+

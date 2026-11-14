@@ -1,0 +1,377 @@
+import React, { useEffect, useState, useCallback } from 'react';
+import axios from 'axios';
+import {
+  AlertTriangle,
+  Loader2,
+  MapPin,
+  Phone,
+  User,
+  Clock,
+  CheckCircle,
+  PlayCircle,
+  Send,
+  RefreshCw,
+  Bell,
+  Check
+} from 'lucide-react';
+
+const API_BASE = import.meta.env.VITE_API_URL || '';
+
+const ReportVerification = ({ lang, user }) => {
+  const [queue, setQueue] = useState([]);
+  const [myCases, setMyCases] = useState([]);
+  const [notifications, setNotifications] = useState([]);
+  const [unreadCount, setUnreadCount] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [selectedReport, setSelectedReport] = useState(null);
+  const [adviceText, setAdviceText] = useState('');
+  const [verificationNotes, setVerificationNotes] = useState('');
+  const [actionLoading, setActionLoading] = useState(false);
+
+  const t = {
+    en: {
+      title: 'Instructor Case Booking',
+      subtitle: 'Claim low-confidence farmer cases and provide paid advice',
+      queue: 'Open Queue (All Sri Lanka)',
+      mine: 'My Claimed Cases',
+      noQueue: 'No open cases in queue',
+      noMine: 'No claimed cases yet',
+      confidence: 'AI Confidence',
+      fee: 'Advice Fee',
+      claim: 'Claim Case',
+      start: 'Start Analysis',
+      submitAdvice: 'Submit Paid Advice',
+      notifications: 'Case Notifications',
+      noNotifications: 'No notifications yet',
+      openCase: 'Open Case',
+      markRead: 'Mark read',
+      advicePlaceholder: 'Write practical, step-by-step advice for the farmer...',
+      notesPlaceholder: 'Optional verification notes',
+      refresh: 'Refresh',
+      onlyInstructors: 'Only agricultural instructors can access this page',
+      queuedBy: 'Farmer',
+      location: 'Location'
+    },
+    si: {
+      title: 'උපදේශක නඩු වෙන්කිරීම්',
+      subtitle: 'අඩු විශ්වාසනීයතා නඩු භාරගෙන ගෙවන උපදෙස් ලබාදෙන්න',
+      queue: 'විවෘත නඩු (ශ්‍රී ලංකාව පුරා)',
+      mine: 'මා භාරගත් නඩු',
+      noQueue: 'විවෘත නඩු නොමැත',
+      noMine: 'භාරගත් නඩු නොමැත',
+      confidence: 'AI විශ්වාසය',
+      fee: 'උපදෙස් ගාස්තුව',
+      claim: 'නඩුව භාරගන්න',
+      start: 'විශ්ලේෂණය ආරම්භ කරන්න',
+      submitAdvice: 'ගෙවන උපදෙස් යවන්න',
+      notifications: 'නඩු දැනුම්දීම්',
+      noNotifications: 'දැනුම්දීම් නොමැත',
+      openCase: 'නඩුව විවෘත කරන්න',
+      markRead: 'කියවූ ලෙස සලකුණු කරන්න',
+      advicePlaceholder: 'ගොවියාට ක්‍රියාකාරී පියවර සමඟ උපදෙස් ලියන්න...',
+      notesPlaceholder: 'විකල්ප සත්‍යාපන සටහන්',
+      refresh: 'නැවුම් කරන්න',
+      onlyInstructors: 'කෘෂිකාර්මික උපදේශකයින්ට පමණක් ප්‍රවේශ විය හැක',
+      queuedBy: 'ගොවියා',
+      location: 'ස්ථානය'
+    }
+  };
+
+  const text = t[lang] || t.en;
+  const token = localStorage.getItem('token');
+
+  const fetchData = useCallback(async () => {
+    try {
+      setLoading(true);
+      const headers = { Authorization: `Bearer ${token}` };
+      const [queueRes, mineRes, notifRes] = await Promise.all([
+        axios.get(`${API_BASE}/api/reports/pending`, { headers }),
+        axios.get(`${API_BASE}/api/reports/instructor/my-cases`, { headers }),
+        axios.get(`${API_BASE}/api/reports/instructor/notifications`, { headers })
+      ]);
+      setQueue(queueRes.data.reports || []);
+      setMyCases(mineRes.data.reports || []);
+      setNotifications(notifRes.data.notifications || []);
+      setUnreadCount(notifRes.data.unreadCount || 0);
+    } catch (err) {
+      console.error('Error loading instructor cases:', err);
+    } finally {
+      setLoading(false);
+    }
+  }, [token]);
+
+  useEffect(() => {
+    if (user?.role === 'officer') {
+      fetchData();
+    }
+  }, [user, fetchData]);
+
+  const openCaseFromNotification = async (reportId, notificationId) => {
+    try {
+      const res = await axios.get(`${API_BASE}/api/reports/${reportId}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      setSelectedReport(res.data.report);
+      await axios.put(`${API_BASE}/api/reports/instructor/notifications/${notificationId}/read`, {}, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      setNotifications((prev) => prev.map((n) => (n._id === notificationId ? { ...n, read: true } : n)));
+      setUnreadCount((prev) => Math.max(0, prev - 1));
+    } catch (err) {
+      alert(err.response?.data?.msg || 'Failed to open case from notification');
+    }
+  };
+
+  const markNotificationRead = async (notificationId) => {
+    try {
+      await axios.put(`${API_BASE}/api/reports/instructor/notifications/${notificationId}/read`, {}, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      setNotifications((prev) => prev.map((n) => (n._id === notificationId ? { ...n, read: true } : n)));
+      setUnreadCount((prev) => Math.max(0, prev - 1));
+    } catch (err) {
+      alert(err.response?.data?.msg || 'Failed to update notification');
+    }
+  };
+
+  const claimCase = async (id) => {
+    try {
+      setActionLoading(true);
+      await axios.post(`${API_BASE}/api/reports/${id}/claim`, {}, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      await fetchData();
+      if (selectedReport?._id === id) {
+        const refreshed = await axios.get(`${API_BASE}/api/reports/${id}`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        setSelectedReport(refreshed.data.report);
+      }
+    } catch (err) {
+      alert(err.response?.data?.msg || 'Failed to claim case');
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  const startAnalysis = async (id) => {
+    try {
+      setActionLoading(true);
+      await axios.post(`${API_BASE}/api/reports/${id}/start-analysis`, {}, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      await fetchData();
+    } catch (err) {
+      alert(err.response?.data?.msg || 'Failed to start analysis');
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  const submitAdvice = async (id) => {
+    try {
+      if (!adviceText.trim()) {
+        alert('Advice text is required');
+        return;
+      }
+      setActionLoading(true);
+      await axios.post(`${API_BASE}/api/reports/${id}/submit-advice`, {
+        adviceText,
+        verificationNotes
+      }, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      setAdviceText('');
+      setVerificationNotes('');
+      await fetchData();
+      setSelectedReport(null);
+    } catch (err) {
+      alert(err.response?.data?.msg || 'Failed to submit advice');
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  if (user?.role !== 'officer') {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="text-center">
+          <AlertTriangle className="h-12 w-12 text-red-500 mx-auto mb-4" />
+          <p className="text-gray-600 dark:text-gray-400">{text.onlyInstructors}</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white dark:from-gray-900 dark:to-gray-900 p-6">
+      <div className="max-w-7xl mx-auto space-y-6">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">{text.title}</h1>
+            <p className="text-gray-600 dark:text-gray-400">{text.subtitle}</p>
+          </div>
+          <button
+            onClick={fetchData}
+            className="px-3 py-2 rounded-lg bg-green-600 text-white flex items-center gap-2 hover:bg-green-700"
+          >
+            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} /> {text.refresh}
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow p-4 lg:col-span-2">
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="font-bold flex items-center gap-2">
+                <Bell className="w-4 h-4" /> {text.notifications}
+              </h2>
+              <span className="text-xs px-2 py-1 rounded-full bg-red-100 text-red-700 font-semibold">
+                {unreadCount} unread
+              </span>
+            </div>
+
+            {loading ? (
+              <Loader2 className="w-5 h-5 animate-spin" />
+            ) : notifications.length === 0 ? (
+              <p className="text-sm text-gray-500">{text.noNotifications}</p>
+            ) : (
+              <div className="space-y-2 max-h-60 overflow-y-auto">
+                {notifications.map((n) => (
+                  <div
+                    key={n._id}
+                    className={`border rounded-xl p-3 ${n.read ? 'bg-gray-50 dark:bg-gray-700' : 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-300'}`}
+                  >
+                    <p className="font-semibold text-sm">{n.title?.en || 'Notification'}</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-300 mt-1">{n.message?.en || ''}</p>
+                    <div className="flex items-center gap-2 mt-2">
+                      {n.reportId && (
+                        <button
+                          onClick={() => openCaseFromNotification(n.reportId, n._id)}
+                          className="text-xs px-2 py-1 rounded bg-blue-600 text-white hover:bg-blue-700"
+                        >
+                          {text.openCase}
+                        </button>
+                      )}
+                      {!n.read && (
+                        <button
+                          onClick={() => markNotificationRead(n._id)}
+                          className="text-xs px-2 py-1 rounded bg-green-600 text-white hover:bg-green-700 flex items-center gap-1"
+                        >
+                          <Check className="w-3 h-3" /> {text.markRead}
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow p-4">
+            <h2 className="font-bold mb-3">{text.queue} ({queue.length})</h2>
+            {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : queue.length === 0 ? <p className="text-sm text-gray-500">{text.noQueue}</p> : (
+              <div className="space-y-3">
+                {queue.map((r) => (
+                  <button key={r._id} onClick={() => setSelectedReport(r)} className="w-full text-left border rounded-xl p-3 hover:bg-gray-50 dark:hover:bg-gray-700">
+                    <p className="font-semibold">{r.title}</p>
+                    <p className="text-xs text-gray-500">{text.confidence}: {Math.round((r.confidence_score || 0) * 100)}%</p>
+                    <p className="text-xs text-gray-500">{text.location}: {r.gnDivision}, {r.district}</p>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow p-4">
+            <h2 className="font-bold mb-3">{text.mine} ({myCases.length})</h2>
+            {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : myCases.length === 0 ? <p className="text-sm text-gray-500">{text.noMine}</p> : (
+              <div className="space-y-3">
+                {myCases.map((r) => (
+                  <button key={r._id} onClick={() => setSelectedReport(r)} className="w-full text-left border rounded-xl p-3 hover:bg-gray-50 dark:hover:bg-gray-700">
+                    <p className="font-semibold">{r.title}</p>
+                    <p className="text-xs text-gray-500">{r.assignmentStatus}</p>
+                    <p className="text-xs text-gray-500">{text.fee}: {r.adviceFeeCredits || 0} credits</p>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {selectedReport && (
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow p-5 space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="text-xl font-bold">{selectedReport.title}</h3>
+              <button onClick={() => setSelectedReport(null)} className="text-sm text-gray-500">Close</button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
+              <div className="flex items-center gap-2"><User className="w-4 h-4" /> {text.queuedBy}: {selectedReport.farmerName}</div>
+              <div className="flex items-center gap-2"><Phone className="w-4 h-4" /> {selectedReport.farmerPhone}</div>
+              <div className="flex items-center gap-2"><MapPin className="w-4 h-4" /> {selectedReport.gnDivision}, {selectedReport.district}</div>
+              <div className="flex items-center gap-2"><Clock className="w-4 h-4" /> {text.confidence}: {Math.round((selectedReport.confidence_score || 0) * 100)}%</div>
+              <div className="flex items-center gap-2"><CheckCircle className="w-4 h-4" /> {text.fee}: {selectedReport.adviceFeeCredits || 0} credits</div>
+            </div>
+
+            {selectedReport.description && (
+              <p className="text-sm text-gray-700 dark:text-gray-300">{selectedReport.description}</p>
+            )}
+
+            {selectedReport.assignmentStatus === 'unassigned' && (
+              <button
+                onClick={() => claimCase(selectedReport._id)}
+                disabled={actionLoading}
+                className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-60"
+              >
+                {text.claim}
+              </button>
+            )}
+
+            {['claimed', 'analysing'].includes(selectedReport.assignmentStatus) && (
+              <div className="space-y-3">
+                {selectedReport.assignmentStatus === 'claimed' && (
+                  <button
+                    onClick={() => startAnalysis(selectedReport._id)}
+                    disabled={actionLoading}
+                    className="px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-60 flex items-center gap-2"
+                  >
+                    <PlayCircle className="w-4 h-4" /> {text.start}
+                  </button>
+                )}
+
+                <textarea
+                  value={adviceText}
+                  onChange={(e) => setAdviceText(e.target.value)}
+                  placeholder={text.advicePlaceholder}
+                  className="w-full p-3 border rounded-lg min-h-[120px]"
+                />
+                <textarea
+                  value={verificationNotes}
+                  onChange={(e) => setVerificationNotes(e.target.value)}
+                  placeholder={text.notesPlaceholder}
+                  className="w-full p-3 border rounded-lg min-h-[80px]"
+                />
+
+                <button
+                  onClick={() => submitAdvice(selectedReport._id)}
+                  disabled={actionLoading}
+                  className="px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 disabled:opacity-60 flex items-center gap-2"
+                >
+                  <Send className="w-4 h-4" /> {text.submitAdvice}
+                </button>
+              </div>
+            )}
+
+            {selectedReport.assignmentStatus === 'advice_submitted' && (
+              <div className="p-3 rounded-lg bg-green-50 text-green-700 text-sm">
+                Advice already submitted for this case.
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default ReportVerification;

@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+.env.local
+*.log
+.DS_Store
+.vercel
+server/uploads/
+*.pem
+coverage/
+*.tsbuildinfo
+apps/
+app/
+packages/
